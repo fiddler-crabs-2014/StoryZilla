@@ -3,5 +3,7 @@
 <p>Select a story to add another contribution</p>
 <% @stories.each do |story| %>
   <% last_contrib = story.last_contribution %>
+  <% unless last_contrib.nil? %>
   <p><%= last_contrib.body %> <%= link_to 'add to story', new_contribution_path(contribution_id: last_contrib.id) %></p>
+  <% end %>
 <% end %>
