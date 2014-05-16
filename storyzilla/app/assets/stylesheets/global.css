@@ -7,8 +7,9 @@ h1 {
   text-align: center;
 }
 
-a {
+a:link, a:hover, a:visited {
   text-decoration: none;
+  color: #533A27;
 }
 
 .full {
