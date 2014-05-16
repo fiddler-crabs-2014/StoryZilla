@@ -8,20 +8,20 @@ describe ContributionsController do
     before { session[:user_id] = user.id }
     it "sets instance variable with all incomplete stories" do
       get :index
-      expect(assigns(:stories)).to eq(Story.where(complete: false))  # opposite controller.assign
+      expect(assigns(:stories)).to eq(Story.where(completion_status: false).take)  # opposite controller.assign
     end
 
     before { session[:user_id] = nil }
     it "redirects if not logged in?" do
-      session[:user_id] = nil
       get :index
       expect(response).to render_template(:login)
+      # not working because redirect not happening
     end
 
     before { session[:user_id] = user.id }
     it "renders template :index" do
       get :index
-      response.should render_template(:"stories/index")
+      response.should render_template(:"contributions/index")
     end
   end
 
