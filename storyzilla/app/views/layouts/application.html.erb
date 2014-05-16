@@ -13,6 +13,7 @@
     <% if signed_in? %>
       <li><%= link_to 'Profile', user_path(current_user) %></li>
       <li><%= link_to 'Create Story', new_story_path(@story) %></li>
+      <li><%= link_to 'Contribute to a Story', contributions_path %></li>
       <li><%= link_to "Log Out", signout_path, method: :delete %></li>
     <% else %>
       <li><%= link_to "Sign Up", new_user_path %></li>

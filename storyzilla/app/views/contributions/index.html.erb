@@ -1,12 +1,14 @@
-<h1>Contributions:</h1>
-<p>These are the last Contributions for each story</p>
-<p>Select a story to add another contribution</p>
-<% @stories.each do |story| %>
-  <% last_contrib = story.last_contribution %>
-  <% if last_contrib.nil? %>
-    <p>TODO: Add this story: <%= story.title %></p>
-    <p>Didn't have time to implement stories with no contributions</p>
-  <% else %>
-  <p><%= last_contrib.body %> <%= link_to 'add to story', new_contribution_path(contribution_id: last_contrib.id) %></p>
+<div class="signup-in">
+  <h1>Contributions:</h1>
+  <p>These are the last Contributions for each story</p>
+  <p>Select a story to add another contribution</p>
+  <% @stories.each do |story| %>
+    <% last_contrib = story.last_contribution %>
+    <% if last_contrib.nil? %>
+      <p>TODO: Add this story: <%= story.title %></p>
+      <p>Didn't have time to implement stories with no contributions</p>
+    <% else %>
+    <p><%= last_contrib.body %> <%= link_to 'add to story', new_contribution_path(contribution_id: last_contrib.id) %></p>
+    <% end %>
   <% end %>
-<% end %>
+</div>
